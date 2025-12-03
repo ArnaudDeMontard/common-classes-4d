@@ -79,67 +79,51 @@ Function reset()
 	
 Function get multipleFiles()->$multipleFiles : Boolean
 	// multiple files 1
-	$multipleFiles:=This:C1470.options ?? 0
+	$multipleFiles:=This.options ?? 0
 	
 Function set multipleFiles($multipleFiles : Boolean)
 	// multiple files 1
-	If ($multipleFiles)
-		This:C1470.options:=This:C1470.options ?+ 0
-	Else 
-		This:C1470.options:=This:C1470.options ?- 0
-	End if 
+	This.options:=$multipleFiles ? This.options ?+ 0 : This.options ?- 0
 	
 Function get packageOpen()->$packageOpen : Boolean
 	// package open 2
-	$packageOpen:=This:C1470.options ?? 1
+	$packageOpen:=This.options ?? 1
 	
 Function set packageOpen($packageOpen : Boolean)
 	// package open 2
-	If ($packageOpen)
-		This:C1470.options:=This:C1470.options ?+ 1
-	Else 
-		This:C1470.options:=This:C1470.options ?- 1
-	End if 
+	This.options:=$packageOpen ? This.options ?+ 1 : This.options ?- 1
 	
 Function get packageSelection()->$packageSelection : Boolean
 	// package selection 4
-	$packageSelection:=This:C1470.options ?? 2
+	$packageSelection:=This.options ?? 2
 	
 Function set packageSelection($packageSelection : Boolean)
 	// package selection 4
-	If ($packageSelection)
-		This:C1470.options:=This:C1470.options ?+ 2
-	Else 
-		This:C1470.options:=This:C1470.options ?- 2
-	End if 
+	This.options:=$packageSelection ? This.options ?+ 2 : This.options ?- 2
 	
 Function get aliasSelection()->$aliasSelection : Boolean
 	// Alias selection 8
-	$aliasSelection:=This:C1470.options ?? 3
+	$aliasSelection:=This.options ?? 3
 	
 Function set aliasSelection($aliasSelection : Boolean)
 	// Alias selection 8
-	If ($aliasSelection)
-		This:C1470.options:=This:C1470.options ?+ 3
-	Else 
-		This:C1470.options:=This:C1470.options ?- 3
-	End if 
+	This.options:=$aliasSelection ? This.options ?+ 3 : This.options ?- 3
 	
 Function get useSheetWindow()->$useSheetWindow : Boolean
 	// use sheet window 16
-	$useSheetWindow:=This:C1470.options ?? 4
+	$useSheetWindow:=This.options ?? 4
 	
 Function set useSheetWindow($useSheetWindow : Boolean)
 	// use sheet window 16
-	If ($useSheetWindow)
-		This:C1470.options:=This:C1470.options ?+ 4
-	Else 
-		This:C1470.options:=This:C1470.options ?- 4
-	End if 
+	This.options:=$useSheetWindow ? This.options ?+ 4 : This.options ?- 4
 	
 Function get fileNameEntry()->$fileNameEntry : Boolean
 	// file name entry 32
-	$fileNameEntry:=This:C1470.options ?? 5
+	$fileNameEntry:=This.options ?? 5
+	
+Function set fileNameEntry($fileNameEntry : Boolean)
+	// file name entry 32
+	This.options:=$fileNameEntry ? This.options ?+ 5 : This.options ?- 5
 	
 Function set fileNameEntry($fileNameEntry : Boolean)
 	// file name entry 32
@@ -148,7 +132,6 @@ Function set fileNameEntry($fileNameEntry : Boolean)
 	Else 
 		This:C1470.options:=This:C1470.options ?- 5
 	End if 
-	
 	
 Function selectDialog()->$result : Object
 	$result:={success: False:C215; fileList: []; folderList: []; errors: []}
